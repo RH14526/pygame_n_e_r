@@ -1,5 +1,7 @@
 import pygame
 from constans import *
+from display import *
+
 
 class Car:
 

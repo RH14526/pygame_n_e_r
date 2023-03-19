@@ -1,5 +1,6 @@
 import pygame
 from constans import *
+from display import *
 global screen
 
 

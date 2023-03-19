@@ -1,12 +1,6 @@
 import pygame
-
-from classes.Hero import *
 from constans import *
-
-
 global screen
-
-hero = (HERO_START_X, HERO_Y_START, HERO_HEIGHT, HERO_WIDTH)
 
 
 def main():
@@ -19,7 +13,7 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 finish = True
-        hero.display_hero()
+
         pygame.display.flip()
 
     pygame.quit()

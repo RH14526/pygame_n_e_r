@@ -4,3 +4,4 @@ SCREEN_COLOR = (255, 255, 255)
 
 
 size = 2020
+sda = 888

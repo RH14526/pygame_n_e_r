@@ -3,7 +3,7 @@ from constans import *
 
 class Car:
 
-    def __init__(self,image_path, car_width, x_position_c, y_position_c, car_hieght):
+    def __init__(self, image_path_c, car_width, x_position_c, y_position_c, car_hieght):
         self.image_path = 'img/car.jpg'
         self.car_width = car_width
         self.x_position_c = x_position_c

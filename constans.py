@@ -3,5 +3,5 @@ WINDOW_HEIGHT = 640
 SCREEN_COLOR = (255, 255, 255)
 
 
-size = 2020
+size = 202
 sda = 888

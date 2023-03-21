@@ -20,6 +20,8 @@ class Hero:
     def display_hero(self):
         screen.blit(self.img, (self.x_pos, self.y_pos))
 
-    def move_hero(self, button):
-        pass
+
+
+
+
 

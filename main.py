@@ -4,7 +4,7 @@ from helpers import *
 
 
 def main():
-    from classes.Hero import Hero
+    from classes.hero import Hero
 
     my_hero = Hero(HERO_START_X, HERO_Y_START, HERO_HEIGHT, HERO_WIDTH)
     pygame.init()

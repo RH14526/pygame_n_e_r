@@ -3,6 +3,7 @@ from constans import *
 from helpers import *
 
 
+
 class Hero:
     def __init__(self, x_pos, y_pos, height, width):
         self.x_pos = x_pos

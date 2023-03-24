@@ -9,3 +9,4 @@ girl = 'img/girl/girl.png'
 BG = 'img/back/9ba6409e-1370-455f-b50d-2a8d120fdfff.jpg'
 BG_HEIGHT = 326
 WALL_Y_START = 0
+abobo = [1]

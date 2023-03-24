@@ -1,3 +1,5 @@
+import random
+
 import pygame
 from constans import *
 from helpers import *
@@ -23,6 +25,10 @@ def main():
     tile = pygame.transform.scale(tile, (WINDOW_WIDTH, WINDOW_HEIGHT))
     b_pos = 0
     t_pos = -WINDOW_HEIGHT
+    w_y_s_p = 0
+    w_w = random.randint(100, 500)
+    w_h = random.randint(100, 400)
+    w_x_p = random.randint(0, WINDOW_WIDTH - w_w)
     while not finish:
         if b_pos >= WINDOW_HEIGHT:
             b_pos = -WINDOW_HEIGHT
@@ -46,7 +52,11 @@ def main():
         if keys[pygame.K_DOWN] and hero_y < WINDOW_HEIGHT - HERO_HEIGHT:
             hero_y += 5
 
-        add_img(wall_1.get_image_path(), 500, 400, 70, 70)
+        if w_y_s_p > WINDOW_HEIGHT:
+            w_y_s_p = -w_w
+            w_x_p = random.randint(0, WINDOW_WIDTH - w_w)
+        w_y_s_p += scroll
+        add_img(wall_1.get_image_path(), w_w, w_h, w_y_s_p, w_x_p)
         my_hero = Hero(hero_x, hero_y, HERO_HEIGHT, HERO_WIDTH)
         my_hero.display_hero()
         pygame.display.flip()

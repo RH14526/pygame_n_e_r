@@ -14,3 +14,9 @@ class Wall:
 
     def get_image_path(self):
         return self.image_path
+
+    def show(self):
+        img = pygame.image.load(self.image_path)
+        img = pygame.transform.scale(img, (self.wall_width, self.wall_height))
+        screen.blit(img, (self.x_position_w, self.y_position_w))
+

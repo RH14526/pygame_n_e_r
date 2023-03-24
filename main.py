@@ -20,18 +20,16 @@ def main():
     hero_y = HERO_Y_START
     pygame.init()
     finish = False
-    scroll = 2
+    scroll = 5
     tile = pygame.image.load('img/back/9ba6409e-1370-455f-b50d-2a8d120fdfff.jpg').convert()
     tile = pygame.transform.scale(tile, (WINDOW_WIDTH, WINDOW_HEIGHT))
     b_pos = 0
     t_pos = -WINDOW_HEIGHT
-    w_y_s_p = 0
-    w_w = random.randint(100, 500)
-    w_h = random.randint(100, 400)
-    w_x_p = random.randint(0, WINDOW_WIDTH - w_w)
+    walls = []
     while not finish:
         if b_pos >= WINDOW_HEIGHT:
             b_pos = -WINDOW_HEIGHT
+
         if t_pos >= WINDOW_HEIGHT:
             t_pos = -WINDOW_HEIGHT
         b_pos += scroll
@@ -42,6 +40,7 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 finish = True
+
         keys = pygame.key.get_pressed()
         if keys[pygame.K_LEFT] and hero_x > 0:
             hero_x -= 5
@@ -52,11 +51,21 @@ def main():
         if keys[pygame.K_DOWN] and hero_y < WINDOW_HEIGHT - HERO_HEIGHT:
             hero_y += 5
 
-        if w_y_s_p > WINDOW_HEIGHT:
-            w_y_s_p = -w_w
-            w_x_p = random.randint(0, WINDOW_WIDTH - w_w)
-        w_y_s_p += scroll
-        add_img(wall_1.get_image_path(), w_w, w_h, w_y_s_p, w_x_p)
+        # Generate new walls as needed
+        if len(walls) == 0 or walls[-1].y_position_w > 100:
+            wall_width = random.randint(MIN_WALL_WIDTH, MAX_WALL_WIDTH)
+            wall_height = random.randint(MIN_WALL_HEIGHT, MAX_WALL_HEIGHT)
+            wall_x = random.randint(0, WINDOW_WIDTH - wall_width)
+            wall_y = -wall_height / 2
+            walls.append(Wall(wall_width, wall_x, wall_y, wall_height))
+
+        # Move and draw the walls
+        for wall in walls:
+            wall.y_position_w += scroll
+            wall.show()
+            if wall.y_position_w > WINDOW_HEIGHT:
+                walls.remove(wall)
+
         my_hero = Hero(hero_x, hero_y, HERO_HEIGHT, HERO_WIDTH)
         my_hero.display_hero()
         pygame.display.flip()

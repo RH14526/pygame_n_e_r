@@ -3,7 +3,7 @@ import random
 import pygame
 from constans import *
 from helpers import *
-import math
+
 from Wall import *
 from display import *
 

@@ -14,4 +14,4 @@ MIN_WALL_WIDTH = 100
 MAX_WALL_HEIGHT = 100
 MIN_WALL_HEIGHT = 50
 MENU_BACK = 'img/manu_back/menu_back.jpg'
-
+WALL = 'img/wall/wall.png'

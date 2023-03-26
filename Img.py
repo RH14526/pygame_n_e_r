@@ -1,6 +1,6 @@
 import pygame
 from constans import *
-global screen
+from helpers import *
 
 
 class Img:

@@ -3,7 +3,7 @@ from constans import *
 global screen
 
 
-class Wall:
+class Img:
 
     def __init__(self, img_width, x_position, y_position, img_hieght, image_path):
         self.image_path = image_path
@@ -17,9 +17,9 @@ class Wall:
 
     def show(self):
         img = pygame.image.load(self.image_path)
-        img = pygame.transform.scale(img, (self.wall_width, self.wall_height))
-        screen.blit(img, (self.x_position_w, self.y_position_w))
+        img = pygame.transform.scale(img, (self.img_width, self.img_height))
+        screen.blit(img, (self.x_position, self.y_position))
 
     def get_rect(self):
-        return pygame.Rect(self.x_position_w, self.y_position_w, self.wall_width, self.wall_height)
+        return pygame.Rect(self.x_position, self.y_position, self.img_width, self.img_height)
 

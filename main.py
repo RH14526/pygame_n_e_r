@@ -51,7 +51,7 @@ def main():
             hero_y += 5
 
         # Generate new walls as needed
-        if len(walls) == 0 or walls[-1].y_position_w > 100:
+        if len(walls) == 0 or walls[-1].y_position > 100:
             wall_width = random.randint(MIN_WALL_WIDTH, MAX_WALL_WIDTH)
             wall_height = random.randint(MIN_WALL_HEIGHT, MAX_WALL_HEIGHT)
             wall_x = random.randint(0, WINDOW_WIDTH - wall_width)
@@ -60,9 +60,9 @@ def main():
 
         # Move and draw the walls
         for wall in walls:
-            wall.y_position_w += scroll
+            wall.y_position += scroll
             wall.show()
-            if wall.y_position_w > WINDOW_HEIGHT:
+            if wall.y_position > WINDOW_HEIGHT:
                 walls.remove(wall)
 
         my_hero = Hero(hero_x, hero_y, HERO_HEIGHT, HERO_WIDTH)

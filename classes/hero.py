@@ -21,7 +21,8 @@ class Hero:
     def display_hero(self):
         screen.blit(self.img, (self.x_pos, self.y_pos))
 
-
+    def get_rect(self):
+        return pygame.Rect(self.x_pos, self.y_pos, self.width, self.height)
 
 
 

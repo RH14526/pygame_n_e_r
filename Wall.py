@@ -20,3 +20,6 @@ class Wall:
         img = pygame.transform.scale(img, (self.wall_width, self.wall_height))
         screen.blit(img, (self.x_position_w, self.y_position_w))
 
+    def get_rect(self):
+        return pygame.Rect(self.x_position_w, self.y_position_w, self.wall_width, self.wall_height)
+

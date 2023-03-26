@@ -11,6 +11,17 @@ clock = pygame.time.Clock()
 pfs = 60
 
 
+def main_menu():
+    pygame.display.set_caption("menu")
+
+    while True:
+        screen.blit(MENU_BACK, (0, 0))
+        menu_mouse_pos = pygame.mouse.get_pos()
+        menu_font = pygame.font.SysFont("Aharoni", 100)
+        menu_text = menu_font.render("WELCOME TO FASHION FRENZY", True, (244, 194, 194))
+        menu_rect = menu_text.get_rect(center=(640, 100))
+
+        screen.blit(menu_text, menu_rect)
 def main():
     wall_1 = Wall(666, 300, 70, 70)
     bg = pygame.image.load(BG).convert()
@@ -56,7 +67,7 @@ def main():
             wall_width = random.randint(MIN_WALL_WIDTH, MAX_WALL_WIDTH)
             wall_height = random.randint(MIN_WALL_HEIGHT, MAX_WALL_HEIGHT)
             wall_x = random.randint(0, WINDOW_WIDTH - wall_width)
-            wall_y = -wall_height / 2
+            wall_y = -wall_height
             walls.append(Wall(wall_width, wall_x, wall_y, wall_height))
 
         # Move and draw the walls
@@ -66,8 +77,15 @@ def main():
             if wall.y_position_w > WINDOW_HEIGHT:
                 walls.remove(wall)
 
+
+
         my_hero = Hero(hero_x, hero_y, HERO_HEIGHT, HERO_WIDTH)
         my_hero.display_hero()
+
+        list_of_rects = [b.get_rect() for b in walls]
+        if not my_hero.get_rect().collidelist(list_of_rects) == -1:
+            finish = True
+
         pygame.display.flip()
 
     pygame.quit()

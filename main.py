@@ -65,6 +65,11 @@ def main():
                 walls.remove(wall)
 
         my_hero = Hero(hero_x, hero_y, HERO_HEIGHT, HERO_WIDTH)
+
+        list_of_rects = [b.get_rect() for b in walls]
+        if not my_hero.get_rect().collidelist(list_of_rects) == -1:
+            finish = True
+
         my_hero.display_hero()
         pygame.display.flip()
 

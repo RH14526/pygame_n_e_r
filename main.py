@@ -66,8 +66,9 @@ def main():
         if len(walls) == 0 or walls[-1].y_position_w > 100:
             wall_width = random.randint(MIN_WALL_WIDTH, MAX_WALL_WIDTH)
             wall_height = random.randint(MIN_WALL_HEIGHT, MAX_WALL_HEIGHT)
+
             wall_x = random.randint(0, WINDOW_WIDTH - wall_width)
-            wall_y = -wall_height
+            wall_y = -wall_height - random.randint(70, 100)
             walls.append(Wall(wall_width, wall_x, wall_y, wall_height))
 
         # Move and draw the walls

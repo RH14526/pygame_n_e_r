@@ -4,15 +4,14 @@ import pygame
 from constans import *
 from helpers import *
 
-from Wall import *
-from display import *
+from Img import *
 
 clock = pygame.time.Clock()
 pfs = 60
 
 
 def main():
-    wall_1 = Wall(666, 300, 70, 70)
+    wall_1 = Img(666, 300, 70, 70)
     bg = pygame.image.load(BG).convert()
     bg = pygame.transform.scale(bg, (WINDOW_WIDTH, WINDOW_HEIGHT))
     from classes.hero import Hero
@@ -57,7 +56,7 @@ def main():
             wall_height = random.randint(MIN_WALL_HEIGHT, MAX_WALL_HEIGHT)
             wall_x = random.randint(0, WINDOW_WIDTH - wall_width)
             wall_y = -wall_height / 2
-            walls.append(Wall(wall_width, wall_x, wall_y, wall_height))
+            walls.append(Img(wall_width, wall_x, wall_y, wall_height))
 
         # Move and draw the walls
         for wall in walls:

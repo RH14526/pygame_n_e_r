@@ -1,7 +1,6 @@
 import pygame
 from constans import *
 global screen
-from helpers import *
 
 
 class Img:
@@ -23,3 +22,4 @@ class Img:
 
     def get_rect(self):
         return pygame.Rect(self.x_position, self.y_position, self.img_width, self.img_height)
+

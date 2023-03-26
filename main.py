@@ -3,9 +3,8 @@ import random
 import pygame
 from constans import *
 from helpers import *
+from Img import *
 
-from Wall import *
-from display import *
 
 clock = pygame.time.Clock()
 pfs = 60
@@ -23,7 +22,6 @@ def main_menu():
 
         screen.blit(menu_text, menu_rect)
 def main():
-    wall_1 = Wall(666, 300, 70, 70)
     bg = pygame.image.load(BG).convert()
     bg = pygame.transform.scale(bg, (WINDOW_WIDTH, WINDOW_HEIGHT))
     from classes.hero import Hero
@@ -63,18 +61,18 @@ def main():
             hero_y += 5
 
         # Generate new walls as needed
-        if len(walls) == 0 or walls[-1].y_position_w > 100:
+        if len(walls) == 0 or walls[-1].y_position > 100:
             wall_width = random.randint(MIN_WALL_WIDTH, MAX_WALL_WIDTH)
             wall_height = random.randint(MIN_WALL_HEIGHT, MAX_WALL_HEIGHT)
             wall_x = random.randint(0, WINDOW_WIDTH - wall_width)
             wall_y = -wall_height
-            walls.append(Wall(wall_width, wall_x, wall_y, wall_height))
+            walls.append(Img(wall_width, wall_x, wall_y, wall_height, WALL))
 
         # Move and draw the walls
         for wall in walls:
-            wall.y_position_w += scroll
+            wall.y_position += scroll
             wall.show()
-            if wall.y_position_w > WINDOW_HEIGHT:
+            if wall.y_position > WINDOW_HEIGHT:
                 walls.remove(wall)
 
 

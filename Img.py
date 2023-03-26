@@ -5,12 +5,12 @@ from display import *
 
 class Wall:
 
-    def __init__(self, wall_width, x_position_w, y_position_w, wall_hieght):
-        self.image_path = 'img/wall/wall.png'
-        self.wall_width = wall_width
-        self.x_position_w = x_position_w
-        self.y_position_w = y_position_w
-        self.wall_height = wall_hieght
+    def __init__(self, img_width, x_position, y_position, img_hieght, image_path):
+        self.image_path = image_path
+        self.img_width = wall_width
+        self.x_position = x_position_w
+        self.y_position = y_position_w
+        self.img_height = wall_hieght
 
     def get_image_path(self):
         return self.image_path

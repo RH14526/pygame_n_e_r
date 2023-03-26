@@ -4,7 +4,7 @@ import pygame
 from constans import *
 from helpers import *
 
-from Wall import *
+from Img import *
 from display import *
 
 clock = pygame.time.Clock()

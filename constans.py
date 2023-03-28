@@ -1,4 +1,5 @@
 ################## game #######################
+import pygame.font
 
 WINDOW_WIDTH = 1000
 WINDOW_HEIGHT = 650
@@ -15,7 +16,6 @@ MAX_WALL_WIDTH = 400
 MIN_WALL_WIDTH = 100
 MAX_WALL_HEIGHT = 100
 MIN_WALL_HEIGHT = 50
-MENU_BACK = 'img/manu_back/menu_back.jpg'
 WALL = 'img/wall/wall.png'
 
 ##################### closet ##############################
@@ -32,4 +32,18 @@ BOTTOM_HEIGHT = HERO_HEIGHT / 2
 BOTTOM_Y = HERO_Y_START + (BOTTOM_HEIGHT * 2) + 15
 
 #############menu#######################################
+
+MENU_BACK = 'img/manu_back/happy-father-s-day-celebration-wooden-background-with-various-accessories_1302-4596.jpg'
+TEMP_BUTTON = pygame.image.load('img/play/עיצוב ללא שם.png')
+PURPLE = (128, 0, 128)
+WHITE = (250, 240, 240)
+BABY_PINK = (255, 193, 203)
+PINK = (255, 105, 180)
+MENU_FONT = 'Aharoni'
+BUTTON_FONT_SIZE = 40
+MENU_FONT_SIZE = 70
+BUTTONS_SIZE = (400, 125)
+BUTTON_POS = (500, 280)
+MENU_POS = (500, WINDOW_HEIGHT / 6)
+
 

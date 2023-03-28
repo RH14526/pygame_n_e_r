@@ -18,7 +18,8 @@ def main():
     hero_y = HERO_Y_START
     pygame.init()
     finish = False
-    scroll = 5
+    hero_scroll = 5
+    scroll = 3
     tile = pygame.image.load('img/back/9ba6409e-1370-455f-b50d-2a8d120fdfff.jpg').convert()
     tile = pygame.transform.scale(tile, (WINDOW_WIDTH, WINDOW_HEIGHT))
     b_pos = 0
@@ -41,20 +42,20 @@ def main():
 
         keys = pygame.key.get_pressed()
         if keys[pygame.K_LEFT] and hero_x > 0:
-            hero_x -= 5
+            hero_x -= hero_scroll
         if keys[pygame.K_RIGHT] and hero_x < WINDOW_WIDTH - HERO_WIDTH:
-            hero_x += 5
+            hero_x += hero_scroll
         if keys[pygame.K_UP] and hero_y > 0:
-            hero_y -= 5
+            hero_y -= hero_scroll
         if keys[pygame.K_DOWN] and hero_y < WINDOW_HEIGHT - HERO_HEIGHT:
-            hero_y += 5
+            hero_y += hero_scroll
 
         # Generate new walls as needed
         if len(walls) == 0 or walls[-1].y_position > 100:
             wall_width = random.randint(MIN_WALL_WIDTH, MAX_WALL_WIDTH)
             wall_height = random.randint(MIN_WALL_HEIGHT, MAX_WALL_HEIGHT)
             wall_x = random.randint(0, WINDOW_WIDTH - wall_width)
-            wall_y = -wall_height / 2
+            wall_y = -wall_height - random.randint(50, 100)
             walls.append(Img(wall_width, wall_x, wall_y, wall_height, WALL))
 
         # Move and draw the walls
@@ -71,6 +72,10 @@ def main():
             finish = True
 
         my_hero.display_hero()
+        shorts = Img(BOTTOB_WIDTH, BOTTOM_X, BOTTOM_Y, BOTTOM_HEIGHT, SHORTS)
+        shorts.show()
+        top = Img(TOP_WIDTH, TOP_CLOTHERS_X_START, TOP_CLOTHERS_Y_START, TOP_HEIGHT, TOP)
+        top.show()
         pygame.display.flip()
 
     pygame.quit()

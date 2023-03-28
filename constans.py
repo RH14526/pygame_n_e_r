@@ -1,3 +1,5 @@
+################## game #######################
+
 WINDOW_WIDTH = 1000
 WINDOW_HEIGHT = 650
 SCREEN_COLOR = (154, 205, 50)
@@ -15,3 +17,19 @@ MAX_WALL_HEIGHT = 100
 MIN_WALL_HEIGHT = 50
 MENU_BACK = 'img/manu_back/menu_back.jpg'
 WALL = 'img/wall/wall.png'
+
+##################### closet ##############################
+
+SHORTS = 'img/girl_clothes/3.png'
+TOP = 'img/girl_clothes/4.png'
+TOP_CLOTHERS_X_START = HERO_START_X
+TOP_WIDTH = HERO_WIDTH
+TOP_HEIGHT = HERO_HEIGHT / 2
+TOP_CLOTHERS_Y_START = HERO_Y_START + TOP_HEIGHT + 17
+BOTTOM_X = HERO_START_X
+BOTTOB_WIDTH = HERO_WIDTH
+BOTTOM_HEIGHT = HERO_HEIGHT / 2
+BOTTOM_Y = HERO_Y_START + (BOTTOM_HEIGHT * 2) + 15
+
+#############menu#######################################
+

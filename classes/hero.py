@@ -3,7 +3,6 @@ from constans import *
 from helpers import *
 
 
-
 class Hero:
     def __init__(self, x_pos, y_pos, height, width):
         self.x_pos = x_pos
@@ -23,7 +22,3 @@ class Hero:
 
     def get_rect(self):
         return pygame.Rect(self.x_pos, self.y_pos, self.width, self.height)
-
-
-
-

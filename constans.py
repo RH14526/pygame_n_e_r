@@ -17,6 +17,8 @@ MIN_WALL_WIDTH = 100
 MAX_WALL_HEIGHT = 100
 MIN_WALL_HEIGHT = 50
 WALL = 'img/wall/wall.png'
+MIN_WALL_X = 0
+MIN_WALL_Y = 0
 
 ##################### closet ##############################
 

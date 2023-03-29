@@ -1,7 +1,5 @@
 import sys
-
 import pygame
-
 from constans import *
 from Buttens import *
 from play import *
@@ -37,7 +35,6 @@ def main_menu():
 
         screen.blit(extra_menu_text, extra_menu_rect)
         screen.blit(menu_text, menu_rect)
-
 
         for button in [play_button, wardrobe_button, rules_button]:
             button.change_color(menu_mouse_pos)

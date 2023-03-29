@@ -106,7 +106,7 @@ def main():
             print("jshvgdjasg")
             pygame.time.wait(1000)
             print("after_wait")
-            end_font = pygame.font.SysFont("Aharoni", 400)
+            end_font = pygame.font.SysFont("Aharoni", 100)
             end_text = end_font.render("GAME_OVER", True, BABY_PINK)
             end_text_rect = end_text.get_rect(center=(500, WINDOW_HEIGHT / 6))
             screen.blit(end_text, end_text_rect)

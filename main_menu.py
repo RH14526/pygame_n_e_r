@@ -4,6 +4,7 @@ from constans import *
 from Buttens import *
 from play import *
 from helpers import *
+from rules import *
 
 
 def main_menu():
@@ -50,7 +51,7 @@ def main_menu():
                 if wardrobe_button.check_for_mouse(menu_mouse_pos):
                     pass
                 if rules_button.check_for_mouse(menu_mouse_pos):
-                    pass
+                    rules()
 
         pygame.display.update()
 

@@ -1,9 +1,14 @@
 from helpers import *
 import textwrap
+import pygame
+
 
 def rules():
     pygame.display.set_caption("RULES")
     while True:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
         menu_back = pygame.image.load(MENU_BACK).convert()
         menu_back = pygame.transform.scale(menu_back, (WINDOW_WIDTH, WINDOW_HEIGHT))
         screen.blit(menu_back, (0, 0))

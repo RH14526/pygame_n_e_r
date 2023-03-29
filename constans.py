@@ -17,7 +17,9 @@ MIN_WALL_WIDTH = 100
 MAX_WALL_HEIGHT = 100
 MIN_WALL_HEIGHT = 50
 WALL = 'img/wall/wall.png'
-COIN = 'img/coins/עותק של ללא כותרת (3).png'
+MIN_WALL_X = 0
+MIN_WALL_Y = 0
+
 ##################### closet ##############################
 
 SHORTS = 'img/girl_clothes/3.png'
@@ -45,5 +47,9 @@ MENU_FONT_SIZE = 70
 BUTTONS_SIZE = (400, 125)
 BUTTON_POS = (500, 280)
 MENU_POS = (500, WINDOW_HEIGHT / 6)
-
-
+RULES_X_POSITION = 150
+RULES_WIDTH = 700
+RULES_Y_POSITION = 90
+RULES_HEIGHT = 500
+X_Y_TEXT = [225, 250]
+Black = (0, 0, 0)

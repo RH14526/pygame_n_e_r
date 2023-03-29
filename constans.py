@@ -32,7 +32,7 @@ BOTTOM_X = HERO_START_X
 BOTTOB_WIDTH = HERO_WIDTH
 BOTTOM_HEIGHT = HERO_HEIGHT / 2
 BOTTOM_Y = HERO_Y_START + (BOTTOM_HEIGHT * 2) + 15
-
+COIN = 'img/coins/עותק של ללא כותרת (3).png'
 #############menu#######################################
 
 MENU_BACK = 'img/manu_back/happy-father-s-day-celebration-wooden-background-with-various-accessories_1302-4596.jpg'

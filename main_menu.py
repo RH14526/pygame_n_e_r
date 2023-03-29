@@ -6,6 +6,7 @@ from play import *
 from helpers import *
 from rules import *
 
+
 def main_menu():
     pygame.font.init()
     pygame.display.set_caption('menu')

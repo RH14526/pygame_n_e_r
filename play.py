@@ -11,6 +11,8 @@ pfs = 60
 
 
 def main():
+    global how_much_coins
+    how_much_coins = 0
     from main_menu import main_menu
     bg = pygame.image.load(BG).convert()
     bg = pygame.transform.scale(bg, (WINDOW_WIDTH, WINDOW_HEIGHT))
@@ -28,14 +30,14 @@ def main():
     walls = []
     hearts = 3
     score = 0
-    coins = []
     last_collidion = -1
+    coins = []
     while not finish:
-        # go_back_button = pygame.image.load('img/quit/עותק של ללא כותרת (4).png')
-        # go_back_button = pygame.transform.scale(go_back_button, (5, 5))
-        # back_font = pygame.font.SysFont("Aharoni", 20)
-        # back_button = Button(go_back_button, (100, 400), " ", back_font, PURPLE, BABY_PINK)
-        # mouse = pygame.mouse.get_pos()
+        go_back_button = pygame.image.load('img/quit/עותק של ללא כותרת (1).jpg')
+        go_back_button = pygame.transform.scale(go_back_button, (10, 10))
+        back_font = pygame.font.SysFont("Aharoni", 20)
+        back_button = Button(go_back_button, (100, 400), " ", back_font, PURPLE, BABY_PINK)
+        mouse = pygame.mouse.get_pos()
 
         if b_pos >= WINDOW_HEIGHT:
             b_pos = -WINDOW_HEIGHT
@@ -50,9 +52,9 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 finish = True
-            # if event.type == pygame.MOUSEBUTTONDOWN:
-            #     if back_button.check_for_mouse(mouse):
-            #         main_menu()
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if back_button.check_for_mouse(mouse):
+                    main_menu()
         keys = pygame.key.get_pressed()
         if keys[pygame.K_LEFT] and hero_x > 0:
             hero_x -= hero_scroll
@@ -64,12 +66,15 @@ def main():
             hero_y += hero_scroll
 
         # Generate new walls as needed
-        if len(walls) == 0 or walls[-1].y_position > 100:
+        if (len(walls) == 0 or walls[-1].y_position > 100) and (len(coins) == 0 or coins[-1].y_position > 100):
             wall_width = random.randint(MIN_WALL_WIDTH, MAX_WALL_WIDTH)
             wall_height = random.randint(MIN_WALL_HEIGHT, MAX_WALL_HEIGHT)
             wall_x = random.randint(0, WINDOW_WIDTH - wall_width)
             wall_y = -wall_height - random.randint(50, 100)
             walls.append(Img(wall_width, wall_x, wall_y, wall_height, WALL))
+            coin_x = random.randint(0, WINDOW_WIDTH - 40)
+            coin_y = - 40
+            coins.append(Img(100, coin_x, coin_y, 100, COIN))
 
         # Move and draw the walls
         for wall in walls:
@@ -80,7 +85,19 @@ def main():
 
         my_hero = Hero(hero_x, hero_y, HERO_HEIGHT, HERO_WIDTH)
 
-        # back_button.update()
+        list_of_coin_rects = [b.get_rect() for b in coins]
+
+        for coin in coins:
+            coin.y_position += scroll
+            coin.show()
+            if not my_hero.get_rect().collidelist(list_of_coin_rects) == -1:
+                coins.remove(coin)
+                score += 1
+                how_much_coins += 1
+            if coin.y_position > WINDOW_HEIGHT:
+                coins.remove(coin)
+
+        back_button.update()
 
         list_of_rects = [b.get_rect() for b in walls]
 
@@ -89,16 +106,10 @@ def main():
             heart = Img(40, 800 + 50 * i, 80, 40, heart_img)
             heart.show()
 
-
-
         rect_index = my_hero.get_rect().collidelist(list_of_rects)
         if last_collidion == -1 and rect_index != -1:
             hearts -= 1
         last_collidion = rect_index
-
-
-
-
 
         my_hero.display_hero()
 

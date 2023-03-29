@@ -8,7 +8,7 @@ from helpers import *
 
 def main_menu():
     pygame.font.init()
-    pygame.display.set_caption('menu')
+    pygame.display.set_caption('FASHION FRENZY')
 
     while True:
         menu_back = pygame.image.load(MENU_BACK).convert()

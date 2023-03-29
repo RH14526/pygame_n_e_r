@@ -17,7 +17,7 @@ MIN_WALL_WIDTH = 100
 MAX_WALL_HEIGHT = 100
 MIN_WALL_HEIGHT = 50
 WALL = 'img/wall/wall.png'
-
+COIN = 'img/coins/עותק של ללא כותרת (3).png'
 ##################### closet ##############################
 
 SHORTS = 'img/girl_clothes/3.png'

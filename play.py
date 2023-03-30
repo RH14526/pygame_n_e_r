@@ -52,6 +52,7 @@ def main():
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
+                print("!!!!!!")
                 finish = True
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if go_back_button.check_for_mouse(mouse):
@@ -137,7 +138,7 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if go_back_button.check_for_mouse(mouse_pos):
-                    sound = pygame.mixer.Sound('sounds/game_over_sound.wav')
+                    sound = pygame.mixer.Sound('sounds/game_over.wav')
                     pygame.mixer.Sound.play(sound)
         pygame.display.flip()
 

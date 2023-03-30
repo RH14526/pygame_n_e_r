@@ -91,7 +91,7 @@ def main():
             coin.show()
             if not my_hero.get_rect().collidelist(list_of_coin_rects) == -1:
                 coins.remove(coin)
-                sound = pygame.mixer.Sound('img/rules_bk/sounds/coin_collide.wav')
+                sound = pygame.mixer.Sound('sounds/coin_collide.wav')
                 pygame.mixer.Sound.play(sound)
                 score += 1
                 how_much_coins += 1
@@ -109,7 +109,7 @@ def main():
 
         rect_index = my_hero.get_rect().collidelist(list_of_rects)
         if last_collidion == -1 and rect_index != -1:
-            sound = pygame.mixer.Sound('img/rules_bk/sounds/collide.wav')
+            sound = pygame.mixer.Sound('sounds/collide.wav')
             pygame.mixer.Sound.play(sound)
             hearts -= 1
         last_collidion = rect_index
@@ -122,7 +122,7 @@ def main():
             end_font = pygame.font.SysFont("Aharoni", 100)
             end_text = end_font.render("GAME_OVER", True, BABY_PINK)
             screen.blit(end_text, (200, 250))
-            sound = pygame.mixer.Sound('img/rules_bk/sounds/game_over_sound.wav')
+            sound = pygame.mixer.Sound('sounds/game_over_sound.wav')
             pygame.mixer.Sound.play(sound)
             pygame.display.update()
             pygame.time.wait(1000)

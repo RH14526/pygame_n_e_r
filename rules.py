@@ -12,9 +12,13 @@ def rules():
         mouse = pygame.mouse.get_pos()
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
+                sound = pygame.mixer.Sound('sounds/back_butten.wav')
+                pygame.mixer.Sound.play(sound)
                 pygame.quit()
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if go_back_button.check_for_mouse(mouse):
+                    sound = pygame.mixer.Sound('sounds/back_butten.wav')
+                    pygame.mixer.Sound.play(sound)
                     main_menu()
         menu_back = pygame.image.load(MENU_BACK).convert()
         menu_back = pygame.transform.scale(menu_back, (WINDOW_WIDTH, WINDOW_HEIGHT))

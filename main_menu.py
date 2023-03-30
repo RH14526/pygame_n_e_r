@@ -1,5 +1,5 @@
 import sys
-# import pygame
+import pygame
 # from constans import *
 # from Buttens import *
 from play import *

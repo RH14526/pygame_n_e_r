@@ -98,6 +98,7 @@ def main():
             sound = pygame.mixer.Sound('sounds/collide.wav')
             pygame.mixer.Sound.play(sound)
             coins.remove(coins[rect_coin_index])
+            score += 1
 
         list_of_rects = [b.get_rect() for b in walls]
 

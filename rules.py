@@ -5,6 +5,7 @@ from Buttens import *
 
 
 def rules():
+    pygame.display.init()
     pygame.display.set_caption("RULES")
     from main_menu import main_menu
     while True:

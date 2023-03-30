@@ -52,7 +52,6 @@ def main():
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                print("!!!!!!")
                 finish = True
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if go_back_button.check_for_mouse(mouse):

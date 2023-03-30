@@ -1,13 +1,14 @@
 import sys
-import pygame
-from constans import *
-from Buttens import *
+# import pygame
+# from constans import *
+# from Buttens import *
 from play import *
 from helpers import *
 from rules import *
 
 
 def main_menu():
+
     pygame.font.init()
     pygame.display.set_caption('FASHION FRENZY')
 
@@ -34,6 +35,7 @@ def main_menu():
         rules_font = pygame.font.SysFont("Aharoni", 40)
         rules_button = Button(TEMP_BUTTON, (BUTTON_POS[0], BUTTON_POS[1] + 260), "RULES", rules_font, PURPLE, BABY_PINK)
 
+
         screen.blit(extra_menu_text, extra_menu_rect)
         screen.blit(menu_text, menu_rect)
 
@@ -51,6 +53,7 @@ def main_menu():
                 if wardrobe_button.check_for_mouse(menu_mouse_pos):
                     pass
                 if rules_button.check_for_mouse(menu_mouse_pos):
+                    print("rules")
                     rules()
 
         pygame.display.update()

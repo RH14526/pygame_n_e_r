@@ -33,12 +33,11 @@ def main():
     last_collidion = -1
     coins = []
     while not finish:
-        go_back_button = pygame.image.load('img/quit/עותק של ללא כותרת (1).jpg')
-        go_back_button = pygame.transform.scale(go_back_button, (10, 10))
-        back_font = pygame.font.SysFont("Aharoni", 20)
-        back_button = Button(go_back_button, (100, 400), " ", back_font, PURPLE, BABY_PINK)
-        mouse = pygame.mouse.get_pos()
+        go_back_button = pygame.image.load('img/go_back_b/go_back_b.png')
+        back_font = pygame.font.SysFont("Aharoni", 40)
+        go_back_button = Button(go_back_button, (60, 40), " ", back_font, PURPLE, BABY_PINK)
 
+        mouse = pygame.mouse.get_pos()
         if b_pos >= WINDOW_HEIGHT:
             b_pos = -WINDOW_HEIGHT
 
@@ -53,7 +52,7 @@ def main():
             if event.type == pygame.QUIT:
                 finish = True
             if event.type == pygame.MOUSEBUTTONDOWN:
-                if back_button.check_for_mouse(mouse):
+                if go_back_button.check_for_mouse(mouse):
                     main_menu()
         keys = pygame.key.get_pressed()
         if keys[pygame.K_LEFT] and hero_x > 0:
@@ -97,7 +96,7 @@ def main():
             if coin.y_position > WINDOW_HEIGHT:
                 coins.remove(coin)
 
-        back_button.update()
+        go_back_button.update()
 
         list_of_rects = [b.get_rect() for b in walls]
 
@@ -114,14 +113,13 @@ def main():
         my_hero.display_hero()
 
         if hearts == 0:
-            print("jshvgdjasg")
             pygame.time.wait(1000)
-            print("after_wait")
+            screen.fill((0, 0, 0))
             end_font = pygame.font.SysFont("Aharoni", 100)
             end_text = end_font.render("GAME_OVER", True, BABY_PINK)
-            end_text_rect = end_text.get_rect(center=(500, WINDOW_HEIGHT / 6))
-            screen.blit(end_text, end_text_rect)
-            pygame.time.wait(3000)
+            screen.blit(end_text, (200, 250))
+            pygame.display.update()
+            pygame.time.wait(1000)
             finish = True
 
         pygame.display.flip()

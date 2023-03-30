@@ -4,8 +4,8 @@ import pygame.font
 WINDOW_WIDTH = 1000
 WINDOW_HEIGHT = 650
 SCREEN_COLOR = (154, 205, 50)
-HERO_START_X = 450
-HERO_Y_START = 70
+HERO_START_X = 400
+HERO_Y_START = 450
 HERO_WIDTH = 70
 HERO_HEIGHT = 150
 girl = 'img/girl/עותק של ללא כותרת (7).png'

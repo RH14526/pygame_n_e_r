@@ -81,24 +81,21 @@ def main():
             wall.show()
             if wall.y_position > WINDOW_HEIGHT:
                 walls.remove(wall)
+        for coin in coins:
+            coin.y_position += scroll
+            coin.show()
+            if coin.y_position > WINDOW_HEIGHT:
+                coins.remove(coin)
 
         my_hero = Hero(hero_x, hero_y, HERO_HEIGHT, HERO_WIDTH)
 
         list_of_coin_rects = [b.get_rect() for b in coins]
 
-        for coin in coins:
-            coin.y_position += scroll
-            coin.show()
-            if not my_hero.get_rect().collidelist(list_of_coin_rects) == -1:
-                coins.remove(coin)
-                sound = pygame.mixer.Sound('img/rules_bk/sounds/coin_collide.wav')
-                pygame.mixer.Sound.play(sound)
-                score += 1
-                how_much_coins += 1
-            if coin.y_position > WINDOW_HEIGHT:
-                coins.remove(coin)
-
-        go_back_button.update()
+        rect_coin_index = my_hero.get_rect().collidelist(list_of_coin_rects)
+        if last_collidion == -1 and rect_coin_index != -1:
+            sound = pygame.mixer.Sound('img/rules_bk/sounds/collide.wav')
+            pygame.mixer.Sound.play(sound)
+            coins.remove(coins[rect_coin_index])
 
         list_of_rects = [b.get_rect() for b in walls]
 
@@ -115,6 +112,12 @@ def main():
         last_collidion = rect_index
 
         my_hero.display_hero()
+
+        score_font = pygame.font.SysFont("Aharoni", 40)
+        score_text = score_font.render("score : " + str(score), True, PURPLE)
+        screen.blit(score_text, (800, 40))
+
+        go_back_button.update()
 
         if hearts == 0:
             pygame.time.wait(1000)

@@ -95,7 +95,7 @@ def main():
 
         rect_coin_index = my_hero.get_rect().collidelist(list_of_coin_rects)
         if last_collidion == -1 and rect_coin_index != -1:
-            sound = pygame.mixer.Sound('img/rules_bk/sounds/collide.wav')
+            sound = pygame.mixer.Sound('sounds/collide.wav')
             pygame.mixer.Sound.play(sound)
             coins.remove(coins[rect_coin_index])
 

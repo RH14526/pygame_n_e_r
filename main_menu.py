@@ -8,7 +8,7 @@ from rules import *
 
 
 def main_menu():
-
+    pygame.mixer.init()
     pygame.font.init()
     pygame.display.set_caption('FASHION FRENZY')
     pygame.mixer.init()

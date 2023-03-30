@@ -2,7 +2,6 @@ import random
 
 import pygame
 from constans import *
-from helpers import *
 from Buttens import *
 from Img import *
 
@@ -11,8 +10,7 @@ pfs = 60
 
 
 def main():
-    global how_much_coins
-    how_much_coins = 0
+    from helpers import how_much_coins
     from main_menu import main_menu
     bg = pygame.image.load(BG).convert()
     bg = pygame.transform.scale(bg, (WINDOW_WIDTH, WINDOW_HEIGHT))
@@ -73,7 +71,7 @@ def main():
             wall_y = -wall_height - random.randint(50, 100)
             walls.append(Img(wall_width, wall_x, wall_y, wall_height, WALL))
             coin_x = random.randint(0, WINDOW_WIDTH - 40)
-            coin_y = - 40
+            coin_y = - 100
             coins.append(Img(100, coin_x, coin_y, 100, COIN))
 
         # Move and draw the walls
@@ -83,19 +81,28 @@ def main():
             if wall.y_position > WINDOW_HEIGHT:
                 walls.remove(wall)
 
-        my_hero = Hero(hero_x, hero_y, HERO_HEIGHT, HERO_WIDTH)
-
-        list_of_coin_rects = [b.get_rect() for b in coins]
-
         for coin in coins:
             coin.y_position += scroll
             coin.show()
-            if not my_hero.get_rect().collidelist(list_of_coin_rects) == -1:
-                coins.remove(coin)
-                score += 1
-                how_much_coins += 1
             if coin.y_position > WINDOW_HEIGHT:
                 coins.remove(coin)
+
+        my_hero = Hero(hero_x, hero_y, HERO_HEIGHT, HERO_WIDTH)
+
+        list_of_coin_rects = [b.get_rect() for b in coins]
+        rect_coin_index = my_hero.get_rect().collidelist(list_of_coin_rects)
+        if last_collidion == -1 and rect_coin_index != -1:
+            score += 1
+            coins.remove(coins[rect_coin_index])
+            how_much_coins += 1
+        last_coin_collidion = rect_coin_index
+        # for coin in coins:
+        #     if not my_hero.get_rect().collidelist(list_of_coin_rects) == -1:
+        #         score += 1
+        #         print(score)
+        #         how_much_coins += 1
+        #         # coins.remove(coin)
+        #         coin.x_position = random.randint(0, WINDOW_WIDTH - 40)
 
         back_button.update()
 
@@ -125,7 +132,7 @@ def main():
             finish = True
 
         pygame.display.flip()
-
+    print(how_much_coins)
     main_menu()
 
 

@@ -4,6 +4,7 @@ import pygame
 
 
 def rules():
+    pygame.display.init()
     pygame.display.set_caption("RULES")
     while True:
         for event in pygame.event.get():

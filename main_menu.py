@@ -45,15 +45,22 @@ def main_menu():
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
+                sound = pygame.mixer.Sound('sounds/back_butten.wav')
+                pygame.mixer.Sound.play(sound)
                 pygame.quit()
                 sys.exit()
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if play_button.check_for_mouse(menu_mouse_pos):
+                    sound = pygame.mixer.Sound('sounds/back_butten.wav')
+                    pygame.mixer.Sound.play(sound)
                     main()
                 if wardrobe_button.check_for_mouse(menu_mouse_pos):
                     pass
+                    sound = pygame.mixer.Sound('sounds/back_butten.wav')
+                    pygame.mixer.Sound.play(sound)
                 if rules_button.check_for_mouse(menu_mouse_pos):
-                    print("rules")
+                    sound = pygame.mixer.Sound('sounds/back_butten.wav')
+                    pygame.mixer.Sound.play(sound)
                     rules()
 
         pygame.display.update()

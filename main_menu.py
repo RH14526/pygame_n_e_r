@@ -1,9 +1,5 @@
 import sys
-import pygame
-# from constans import *
-# from Buttens import *
 from play import *
-from helpers import *
 from rules import *
 
 

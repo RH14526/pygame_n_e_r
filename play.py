@@ -91,6 +91,8 @@ def main():
             coin.show()
             if not my_hero.get_rect().collidelist(list_of_coin_rects) == -1:
                 coins.remove(coin)
+                sound = pygame.mixer.Sound('img/rules_bk/sounds/coin_collide.wav')
+                pygame.mixer.Sound.play(sound)
                 score += 1
                 how_much_coins += 1
             if coin.y_position > WINDOW_HEIGHT:
@@ -107,6 +109,8 @@ def main():
 
         rect_index = my_hero.get_rect().collidelist(list_of_rects)
         if last_collidion == -1 and rect_index != -1:
+            sound = pygame.mixer.Sound('img/rules_bk/sounds/collide.wav')
+            pygame.mixer.Sound.play(sound)
             hearts -= 1
         last_collidion = rect_index
 

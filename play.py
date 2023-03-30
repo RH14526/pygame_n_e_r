@@ -122,7 +122,7 @@ def main():
             end_font = pygame.font.SysFont("Aharoni", 100)
             end_text = end_font.render("GAME_OVER", True, BABY_PINK)
             screen.blit(end_text, (200, 250))
-            sound = pygame.mixer.Sound('sounds/game_over_sound.wav')
+            sound = pygame.mixer.Sound('sounds/back_butten.wav')
             pygame.mixer.Sound.play(sound)
             pygame.display.update()
             pygame.time.wait(1000)

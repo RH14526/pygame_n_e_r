@@ -20,6 +20,7 @@ def main():
     hero_x = HERO_START_X
     hero_y = HERO_Y_START
     pygame.init()
+    pygame.mixer.init()
     finish = False
     hero_scroll = 7
     scroll = 5
@@ -33,6 +34,7 @@ def main():
     last_collidion = -1
     coins = []
     while not finish:
+        mouse_pos = pygame.mouse.get_pos()
         go_back_button = pygame.image.load('img/go_back_b/go_back_b.png')
         back_font = pygame.font.SysFont("Aharoni", 40)
         go_back_button = Button(go_back_button, (60, 40), " ", back_font, PURPLE, BABY_PINK)
@@ -128,6 +130,11 @@ def main():
             pygame.time.wait(1000)
             finish = True
 
+        for event in pygame.event.get():
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if go_back_button.check_for_mouse(mouse_pos):
+                    sound = pygame.mixer.Sound('sounds/back_butten.wav')
+                    pygame.mixer.Sound.play(sound)
         pygame.display.flip()
 
     main_menu()

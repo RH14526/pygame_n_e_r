@@ -11,6 +11,7 @@ def main_menu():
 
     pygame.font.init()
     pygame.display.set_caption('FASHION FRENZY')
+    pygame.mixer.init()
 
     while True:
         menu_back = pygame.image.load(MENU_BACK).convert()
